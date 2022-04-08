@@ -21,8 +21,8 @@ for i = 1:length(D)
    %           each spectrum by its own mean and dividing it by its own standard deviation. 
    %           After SNV, each spectrum will have a mean of 0 and a standard 
    %           deviation of 1. See also https://doi.org/10.1366%2F15-07905
-   D{i}.X = snvcorr(D{i}.spectra);
-   D{i}.X = 
+   %D{i}.X = snvcorr(D{i}.spectra);
+   D{i}.X = D{i}.spectra; % no correction
    
    % (3) apply PCA
    
