@@ -3,7 +3,7 @@ clear; close all; clc;
 
 % (1) load Raman datasets corresponding to 10 z-scan defocusing
 %     experiments on different sample locations
-D = read_labram_zscan_dataset("test/marble/"+nome_campione,"txt");
+D = read_labram_zscan_dataset("test/marble/","txt");
 
 % (2) carry out data selection (wavenumber range) and PCA
 %     on each z-scan experiment
@@ -22,7 +22,8 @@ for i = 1:length(D)
    %           After SNV, each spectrum will have a mean of 0 and a standard 
    %           deviation of 1. See also https://doi.org/10.1366%2F15-07905
    D{i}.X = snvcorr(D{i}.spectra);
-       
+   D{i}.X = 
+   
    % (3) apply PCA
    
    % 1087 cm**-1 line (calcite)
