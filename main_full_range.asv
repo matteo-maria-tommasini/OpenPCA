@@ -14,7 +14,9 @@ for i = 1:length(D)
    xb = max(D{i}.wavenumber);
    [D{i}.spectra, D{i}.wavenumber] = ...
            select_range(D{i}.spectra, D{i}.wavenumber, xa, xb);
-
+    
+    
+    
    % optional: apply standard normal variate correction to each Raman
    %           spectrum. The so-called Standard Normal Variate (SNV) method 
    %           performs a normalization of the spectra that consists in subtracting 
@@ -32,12 +34,19 @@ for i = 1:length(D)
    % 1462 cm**-1 line (whewellite) 
    xa1 = 1462 - 15;
    xb1 = 1462 + 15;
-   
    % analisi PCA: standardizza la fase della prima componente principale
    % in modo che Loading_1(whe) > Loading_1(calcite)
    [D{i}.L, D{i}.S, D{i}.sigma, D{i}.Sigma, D{i}.chi] = ...
            PCA(D{i}.X,D{i}.wavenumber,xa1,xb1,xa2,xb2);
  end
+    
+    data{idx} = D;
+    clear D;
+end
+
+save('matlab_full_range.mat', 'data', 'intensity', 'nomi');
+
+%analysis;
 
 
  
