@@ -1,0 +1,131 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{bm}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Brief Article}
+\author{The Author}
+\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+
+\section{Italian stuff used as draft}
+%
+Si tratta di un metodo di analisi che è stato introdotto nel 1933 da Harold Hotelling \cite{Hotelling1933} per analizzare dati di tipo psicometrico. Nella letteratura scientifica in lingua inglese tale metodo prende il nome di {\em Principal Component Analysis}, il cui acronimo PCA è molto popolare. Il modo più compatto di introdurre la PCA è attraverso una serie di considerazioni di tipo algebrico svolte sulla matrice di varianza-covarianza.
+%
+Per prima cosa richiamiamo la definizione della matrice di varianza-covarianza e cerchiamo di riscriverla in modo simmetrico:
+
+%
+Tale identità algebrica mette in luce la prima proprietà della matrice di varianza-covarianza, ovvero il fatto che si tratta di una matrice simmetrica  -- un fatto di cui ci siamo già accorti tramite la definizione dei suoi elementi di matrice, si veda l'Eq. (\ref{eq.varianza-covarianza}). 
+%
+Infatti, se introduciamo la matrice $\bm A = \bm \chi / (N_o-1)$, avremo per la matrice $\bm \Sigma$:
+%
+\begin{eqnarray}
+\label{eq.definizione-covarianza}
+\bm \Sigma = \bm A^t \, \bm A
+\end{eqnarray}
+%
+Valutando la trasposta di $\bm \Sigma$ otteniamo:
+%
+\begin{eqnarray}
+\bm \Sigma^t = (\bm A^t \, \bm A)^t = \bm A^t \, (\bm A^t)^t = \bm A^t \, \bm A = \bm \Sigma,
+\end{eqnarray}
+%
+che dimostra ancora una volta la simmetria della matrice di varianza-covarianza.
+%
+Un'altra proprietà significativa della matrice di varianza-covarianza è che si tratta di una matrice definita positiva\footnote{Questo risultato è semplice da dimostrare utilizzando la forma $\bm \Sigma = \bm A^t \bm A$. Una matrice semi definita positiva $\bm M$ è tale per cui dato un vettore generico $\bm x$ risulta $\bm x^t \bm M \bm x \ge 0$. Nel nostro caso, sfruttando la definizione $\bm \Sigma = \bm A^t \bm A$ abbiamo $\bm x^t \bm \Sigma \bm x = \bm x^t \bm A^t \bm A \bm x = (\bm A \bm x)^t (\bm A \bm x) = \left| \bm A \bm x \right|^2$. L'ultimo passaggio dimostra che otteniamo il modulo al quadrato di un generico vettore $\bm A \bm x$; tale modulo al quadrato è certamente una grandezza $\ge 0$.}, che quindi possiede autovalori $\ge 0$ \cite{Schott2016}.
+%
+
+Vediamo ora in che modo si possa introdurre una trasformazione lineare che permetta di passare dagli indici di variabile $v$ a nuovi indici $s$, che chiameremo indici delle componenti principali. L'idea è quella di sostituire al set di variabili con cui abbiamo operato per raccogliere le osservazioni un nuovo set di variabili "migliori", per due motivi: (1) la loro mutua indipendenza (ortogonalità) e (2) il loro numero, potenzialmente più ridotto del numero di variabili originarie. Tale set di variabili "migliori" è il set delle cosiddette componenti principali, da associare agli indici $s$.
+Detto in altri termini, {\em tramite le componenti principali diventa possibile descrivere le osservazioni sperimentali utilizzando un set ridotto di grandezze tra di loro indipendenti}, con vantaggi evidenti.
+
+Dal punto di vista tecnico, per implementare quest'idea basta utilizzare la decomposizione spettrale della matrice di covarianza, che è agevole perchè la matrice $\bm \Sigma$ è simmetrica. A quel punto si cercherà di riportare la decomposizione spettrale in una forma equivalente a quella dell'Eq. \ref{eq.definizione-covarianza} in cui tuttavia il primo membro sarà in forma diagonale. Il riconoscimento di una struttura del tipo $\bm A^t \, \bm A$ nel secondo membro fornirà la definizione del dataset nelle nuove variabili semplificatrici, ovvero nelle componenti principali $s$. È chiaro che, il requisito di {\em indipendenza} delle componenti principali risulterà soddisfatto se assoceremo a ciascuna di questa uno degli autovettori della matrice di covarianza. Infatti autovettori diversi saranno ortogonali tra di loro ({\em vide infra}) e forniranno i coefficienti della trasformazione lineare che permette di passare dalle variabili di indice $v$ ad una certa componente principale di indice $s$.
+
+Esaminiamo quindi i dettagli algebrici in modo dettagliato. Cominciamo con l'equazione agli autovalori per la matrice di covarianza $\bm \Sigma$, in cui associamo ogni coppia autovalore/autovettore ad un indice di componente principale $s$:
+%
+\begin{eqnarray}
+\label{eq.autovalori-covarianza}
+\bm \Sigma_{vv} \bm L_{vs} = \bm L_{vs} \bm \sigma_{ss} 
+\end{eqnarray}
+%
+Nell'equazione (\ref{eq.autovalori-covarianza}) $\bm \sigma_{ss}$ è la matrice diagonale degli autovalori di $\bm \Sigma_{vv}$. $\bm L_{vs}$ è la matrice degli autovettori di $\bm \Sigma_{vv}$. Dato che $\bm \Sigma_{vv}$ è simmetrica, $\bm L_{vs}$ è una matrice ortogonale, per la quale valgono le relazioni:
+%
+\begin{eqnarray}
+\bm L_{vs} \bm L_{sv}  = \bm 1_{vv}
+\\ \nonumber
+\bm L_{sv} \bm L_{vs}  = \bm 1_{ss}. 
+\end{eqnarray}
+%
+Moltiplicando da sinistra l'Eq. (\ref{eq.autovalori-covarianza}) per la matrice $\bm L_{sv}$, e sfruttando le sue proprietà di ortogonalità, si ricava la {\em decomposizione spettrale} della matrice di varianza-covarianza:
+%
+\begin{eqnarray}
+\label{eq.autovalori-covarianza-diagonalizzata}
+\bm L_{sv} \bm \Sigma_{vv} \bm L_{vs}
+=
+\bm \sigma_{ss}
+\end{eqnarray}
+%
+Introduciamo ora nel secondo membro dell'Eq. (\ref{eq.autovalori-covarianza-diagonalizzata}) la definizione di $\bm \Sigma_{vv} = \bm \chi_{vo} \bm \chi_{ov} / (N_o-1)$ (cfr. Eq. \ref{eq.covarianza_variabili_matriciale}): 
+%
+\begin{eqnarray}
+\bm \sigma_{ss} =
+\frac{1}{N_o - 1} \; \bm L_{sv} \bm \chi_{vo} \; \bm \chi_{ov} \bm L_{vs} 
+\end{eqnarray}
+%
+Con un piccolo sforzo possiamo riconoscere al secondo membro una struttura data dal prodotto di una nuova matrice $\bm S$ e della sua trasposta:
+%
+\begin{eqnarray}
+\bm \sigma_{ss}
+=
+\left[ \frac{1}{\sqrt{N_o - 1}} \bm L_{sv} \bm \chi_{vo} \right]
+\left[ \bm \chi_{ov} \bm L_{vs} \frac{1}{\sqrt{N_o - 1}} \right] 
+=
+\bm S_{so} \bm S_{os}
+=
+\bm S^t \bm S.
+\end{eqnarray}
+%
+Le righe di tale matrice, detta matrice degli {\em scores} ($\bm S = \bm S_{os}$), definiscono le  osservazioni $o$ in funzione delle componenti principali $s$:
+%
+\begin{eqnarray}
+\label{eq.scores}
+\bm S_{os} \equiv \left[ \frac{1}{\sqrt{N_o - 1}} \bm \chi_{ov} \bm L_{vs} \right]
+\end{eqnarray}
+
+
+La diagonalizzazione della matrice di covarianza fornisce l'insieme degli autovalori delle componenti principali, rappresentati in quello che viene solitamente chiamato {\it screeplot}. Tale grafico fornisce l'andamento decrescente delle varianze principali ($\sigma_s$) in funzione dell'indice $s$ della componente principale. Da questo grafico si può rapidamente giudicare l'importanza relativa delle componenti principali nel descrivere la varianza totale dei dati del dataset. 
+
+La matrice $\bm L_{vs}$ degli autovettori della matrice di covarianza $\bm \Sigma_{vv}$ è detta matrice dei {\em loadings}. Essa rappresenta il legame tra le variabili ($v$) e le componenti principali ($s$). Nel caso di dataset formati da spettri, la rappresentazione dei {\em loadings} di una componente principale in funzione delle variabili (e.g., lunghezze d'onda), è affine a quella di uno spettro. I picchi (positivi o negativi) nella rappresentazione di uno dei {\em loadings} mostrano in quali regioni spettrali sono osservate le maggiori variazioni (crescita/decrescita) del segnale all'interno del dataset.
+
+Per quanto riguarda invece la matrice $\bm S$ degli {\em scores}, il grafico cartesiano delle prime due colonne della matrice $\bm S_{os}$ (pensate come coordinate $x,y$) fornisce la posizione delle osservazioni del dataset rispetto al sistema di riferimento ortogonale fornito dalle componenti principali $s_1, s_2$. Tale grafico è talvolta definito {\em scatterplot} (grafico di dispersione dei dati).
+È utile osservare che talvolta si utilizza una matrice di {\em scores} $\bm S'_{os}$ normalizzata rispetto alle deviazioni standard principali:
+%
+\begin{eqnarray}
+\bm S'_{os} \equiv \bm S_{os} \bm \sigma_{ss}^{-1/2}
+\end{eqnarray}
+%
+In questo modo nella presentazione dello {\em scatterplot} ci si può ricondurre ad un sistema di riferimento adimensionale (standardizzato). Infatti, le varianze calcolate rispetto alla matrice $\bm S'_{os}$ risultano date da un prodotto uguale alla matrice identità:
+%
+\begin{eqnarray}
+(\bm S')^t \bm S' = 
+%
+\left( \bm \sigma_{ss}^{-1/2} \bm S_{so} \right) \left( \bm S_{os} \bm \sigma_{ss}^{-1/2} \right) =
+%
+\bm \sigma_{ss}^{-1/2} \bm \sigma_{ss} \bm \sigma_{ss}^{-1/2} = \bm 1.
+\end{eqnarray}
+
+
+
+
+
+
+
+\end{document}  
