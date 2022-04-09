@@ -16,6 +16,7 @@ The micro-SORS experiments were carried out by using the Horiba Jobin Yvon LabRA
 
 The micro-SORS spectra were acquired starting from the imaged position (in focus) and progressively enlarging the distance between the sample and the microscope objective. The spectra were collected with a laser intensity of 100 mW and with an acquisition time of 100 s (10s and 10 co-additions).
 
+The data files in txt format have been produced by the LabSpec native software (version XXXX) of the LabRAM HR800 instrument.
 
 
 Reference
