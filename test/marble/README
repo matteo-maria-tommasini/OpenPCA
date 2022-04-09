@@ -8,7 +8,7 @@ Institute of Heritage Science (ISPC), Milano, Italy
 (9 April 2022)
 ==============================================================
 
-The datafiles of this directory (A_1.txt, A_2.txt, ...) are the result of 10 individual micro-SORS analyses collected on different positions of a selected mock-up layered sample described in reference [1].
+The datafiles of this directory (A_1.txt, A_2.txt, ...) are the result of 10 individual micro-SORS analyses collected on different positions of a selected mock-up layered sample (2A) described in reference [1].
 
 Each data file contains 16 micro-Raman spectra, namely the spectrum collected at the imaged position (focus condition) and 15 spectra collected at different defocusing positions (SORS conditions, ranging from 100 to 1500 µm of defocusing, with defocusing steps of 100 µm). 
 
@@ -21,7 +21,8 @@ The data files in txt format have been produced by the LabSpec native software (
 
 Reference
 
-[1] Botteon, A., Realini, M., Colombo, C., Conti, C., Matousek, P. and Castiglioni, C., 2021. Micro-SORS, diffusion processes and heritage science: a non-destructive and systematic investigation. The European Physical Journal Plus, 136(8), pp. 1-12.
+[1] Botteon, A., Realini, M., Colombo, C., Conti, C., Matousek, P. and Castiglioni, C., 2021. Micro-SORS, diffusion processes and heritage science: a non-destructive and systematic investigation. The European Physical Journal Plus, 136(8), pp. 1-12. https://doi.org/10.1140/epjp/s13360-021-01767-4
+
 
 
 
