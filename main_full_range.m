@@ -5,6 +5,12 @@ clear; close all; clc;
 %     experiments on different sample locations
 D = read_labram_zscan_dataset("test/marble/","txt");
 
+% read Raman intensities manually determined by inspection of
+% individual spectra
+intensity = importdata("test/marble/sample_A.xlsx");
+names = [ "A" ];
+
+
 % (2) carry out data selection (wavenumber range) and PCA
 %     on each z-scan experiment
 for i = 1:length(D)
@@ -38,7 +44,11 @@ for i = 1:length(D)
    % in modo che Loading_1(whe) > Loading_1(calcite)
    [D{i}.L, D{i}.S, D{i}.sigma, D{i}.Sigma, D{i}.chi] = ...
            PCA(D{i}.X,D{i}.wavenumber,xa1,xb1,xa2,xb2);
- end
+end
+
+data = D;
+
+save('matlab_full_range.mat', 'data', 'intensity', 'names');
 
 
  
