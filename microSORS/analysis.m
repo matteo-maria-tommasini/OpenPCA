@@ -2,6 +2,24 @@ close all; clear all; clc;
 
 load matlab.mat
 
+tiledlayout(4,3)
+for i=1:length(data)
+    nexttile;
+    title_string = data{i}.name;
+    screeplot(data{i}.sigma,10,title_string);
+end
+savepdf('screeplot.pdf'); 
+
+
+tiledlayout(4,3)
+for i=1:length(data)
+    nexttile;
+    title_string = data{i}.name;
+    cumulative_screeplot(data{i}.sigma,10,title_string);
+end
+savepdf('cumulative_screeplot.pdf'); 
+
+
 figure;
 hold on
 for i=1:length(data)
