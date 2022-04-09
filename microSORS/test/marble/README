@@ -18,6 +18,9 @@ The micro-SORS spectra were acquired starting from the imaged position (in focus
 
 The data files in txt format have been produced by the LabSpec native software (version XXXX) of the LabRAM HR800 instrument.
 
+The file sample_A.xlsx contains the baseline-corrected intensities of the reference bands of whewellite and calcite that were determined by manual inspection of the micro-SORS spectra of the dataset.
+
+
 
 Reference
 
