@@ -15,6 +15,10 @@ sample_name = "A";
 %     on each z-scan experiment
 for i = 1:length(D)
 
+   % plot the micro-SORS spectra before range selection
+   plot_spectra(D{i});
+   savepdf("micro-SORS-spectra_sample_A_"+num2str(i)+".pdf"); 
+    
    % 1087 cm**-1 line (calcite)
    xa2 = 1087 - 15;
    xb2 = 1087 + 15;
@@ -47,11 +51,18 @@ for i = 1:length(D)
    % in modo che Loading_1(whe) > Loading_1(calcite)
    [D{i}.L, D{i}.S, D{i}.sigma, D{i}.Sigma, D{i}.chi] = ...
            PCA(D{i}.X,D{i}.wavenumber,xa1,xb1,xa2,xb2);
+
+   % plot the loadings of the first two PCs
+   % of each micro-SORS z-scan experiment
+   plot_PCA_variations(D{i},2);
+   savepdf("PCA_loadings_micro-SORS-spectra_sample_A_"+num2str(i)+".pdf"); 
+   
 end
 
 data = D;
 
 save('matlab.mat', 'data', 'intensity', 'sample_name');
+close all;
 
 
  
