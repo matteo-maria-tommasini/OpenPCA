@@ -1,0 +1,29 @@
+==============================================================
+Description of the micro-SORS dataset
+==============================================================
+Data courtesy of 
+Alessandra Botteon,
+National Research Council (CNR), 
+Institute of Heritage Science (ISPC), Milano, Italy
+(9 April 2022)
+==============================================================
+
+The datafiles of this directory (A_1.txt, A_2.txt, ...) are the result of 10 individual micro-SORS analyses collected on different positions of a selected mock-up layered sample (2A) described in reference [1].
+
+Each data file contains 16 micro-Raman spectra, namely the spectrum collected at the imaged position (focus condition) and 15 spectra collected at different defocusing positions (SORS conditions, ranging from 100 to 1500 µm of defocusing, with defocusing steps of 100 µm). 
+
+The micro-SORS experiments were carried out by using the Horiba Jobin Yvon LabRAM HR800 Raman spectrometer equipped with a Peltier cooled CCD detector (1024 x 128 pixels) and coupled with an Olympus BX41 microscope. For all the measurements were used a 785 nm excitation laser and a 20x microscope objective (working distance 1.3 mm, numerical aperture 0.4). 
+
+The micro-SORS spectra were acquired starting from the imaged position (in focus) and progressively enlarging the distance between the sample and the microscope objective. The spectra were collected with a laser intensity of 100 mW and with an acquisition time of 100 s (10s and 10 co-additions).
+
+The data files in txt format have been produced by the LabSpec native software (version XXXX) of the LabRAM HR800 instrument.
+
+
+Reference
+
+[1] Botteon, A., Realini, M., Colombo, C., Conti, C., Matousek, P. and Castiglioni, C., 2021. Micro-SORS, diffusion processes and heritage science: a non-destructive and systematic investigation. The European Physical Journal Plus, 136(8), pp. 1-12. https://doi.org/10.1140/epjp/s13360-021-01767-4
+
+
+
+
+
