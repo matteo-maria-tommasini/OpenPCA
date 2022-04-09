@@ -5,5 +5,5 @@ function p = linear_fit(x,y)
    yfit = polyval(p,xval);
    
    plot(xval,yfit,'r-');
-   text(mean(xval),mean(yfit)+0.4*std(yfit),num2str(p));
+   text(mean(xval),mean(yfit)+1.5*std(yfit),num2str(p));
 end

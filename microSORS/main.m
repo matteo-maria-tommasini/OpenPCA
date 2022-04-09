@@ -3,7 +3,7 @@ clear; close all; clc;
 
 % (1) load Raman datasets corresponding to 10 z-scan defocusing
 %     experiments on different sample locations
-D = read_labram_zscan_dataset("test/marble/","txt");
+D = multi_read_labram_zscan("test/marble/","txt");
 
 % read Raman intensities manually determined by inspection of
 % individual spectra
