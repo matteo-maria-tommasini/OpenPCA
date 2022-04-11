@@ -6,13 +6,20 @@
 \usepackage{epstopdf}
 \usepackage{bm}
 \usepackage{verbatim}
+\usepackage{amsaddr} 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \title{A brief guide to Principal Component Analysis as implemented in OpenPCA}
+
 \author{Matteo Tommasini}
+\address{
+Dipartimento di Chimica, Materiali e Ingegneria Chimica "G. Natta"
+Politecnico di Milano, Piazza Leonardo da Vinci 32 -- 20133 Milano (Italy); matteo.tommasini@polimi.it}
+
 \date{\today}
 
 \begin{document}
+
 \maketitle
 
 %
@@ -64,7 +71,7 @@ The variance-covariance matrix among the variables of the dataset ($\bm \Sigma_{
 The last equality shows that, with matrix notation, the variance covariance matrix is simply given by:
 %
 \begin{eqnarray}
-\label{eq.variance_covariance}
+\label{eq.variance_covariance2}
 \bm \Sigma_{vv} = 
 \frac{1}{N_o-1} 
 ({\bm \chi_{ov}})^t {\bm \chi_{ov}} = \frac{1}{N_o-1} 
@@ -90,18 +97,19 @@ In Eq. (\ref{eq.eigenproblem_sigma}) $\bm \sigma_{ss}$ is the diagonal matrix of
 \bm L_{sv} \bm L_{vs}  = \bm 1_{ss}. 
 \end{eqnarray}
 %
-Therefore, by left-multiplying Eq. (\ref{eq.autovalori-covarianza}) by $\bm L_{sv}$, and by considering its orthonormality, one obtains the spectral decomposition of the variance-covariance matrix:
+Therefore, by left-multiplying Eq. (\ref{eq.eigenproblem_sigma}) by $\bm L_{sv}$, and by considering its orthonormality, one obtains the spectral decomposition of the variance-covariance matrix:
 %
 \begin{eqnarray}
-\label{eq.autovalori-covarianza-diagonalizzata}
+\label{eq.spectral-decomposition}
 \bm L_{sv} \bm \Sigma_{vv} \bm L_{vs}
 =
 \bm \sigma_{ss}
 \end{eqnarray}
 %
-By sustituting in the right-hand side of Eq. (\ref{eq.autovalori-covarianza-diagonalizzata}) the definition of $\bm \Sigma_{vv} = \bm \chi_{vo} \bm \chi_{ov} / (N_o-1)$ (cfr. Eq. \ref{eq.covarianza_variabili_matriciale}), one obtains:
+By sustituting in the right-hand side of Eq. (\ref{eq.spectral-decomposition}) the definition of $\bm \Sigma_{vv} = \bm \chi_{vo} \bm \chi_{ov} / (N_o-1)$ (cfr. Eq. \ref{eq.variance_covariance2}), one obtains:
 %
 \begin{eqnarray}
+\label{eq.decomposed}
 \bm \sigma_{ss} =
 \frac{1}{N_o - 1} \; \bm L_{sv} \bm \chi_{vo} \; \bm \chi_{ov} \bm L_{vs} 
 \end{eqnarray}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/MacPorts 2021.58693_2) (preloaded format=pdflatex 2021.11.1)  11 APR 2022 11:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/MacPorts 2021.58693_2) (preloaded format=pdflatex 2021.11.1)  11 APR 2022 11:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -212,38 +212,37 @@ Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks29
 \verbatim@in@stream=\read2
 )
+(/opt/local/share/texmf-texlive/tex/latex/amsaddr/amsaddr.sty
+\c@g@author=\count269
+)
 (/opt/local/share/texmf-texlive/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count269
+\l__color_backend_stack_int=\count270
 \l__pdf_internal_box=\box50
 )
-(./openpca.aux
-
-LaTeX Warning: Label `eq.variance_covariance' multiply defined.
-
-)
+(./openpca.aux)
 \openout1 = `openpca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
 
  (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
 
 
 (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
@@ -285,65 +284,47 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 (/opt/local/share/texmf-texlive/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count270
+\scratchcounter=\count271
 \scratchdimen=\dimen160
 \scratchbox=\box51
-\nofMPsegments=\count271
-\nofMParguments=\count272
+\nofMPsegments=\count272
+\nofMParguments=\count273
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count273
+\MPscratchCnt=\count274
 \MPscratchDim=\dimen161
-\MPnumerator=\count274
-\makeMPintoPDFobject=\count275
+\MPnumerator=\count275
+\makeMPintoPDFobject=\count276
 \everyMPtoPDFconversion=\toks31
-) [1{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Reference `eq.autovalori-covarianza' on page 2 undefined on inpu
-t line 93.
-
-
-LaTeX Warning: Reference `eq.covarianza_variabili_matriciale' on page 2 undefin
-ed on input line 102.
-
-
-LaTeX Warning: Reference `eq.decomposed' on page 2 undefined on input line 109.
-
-
-[2] (./openpca.bbl) [3] (./openpca.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+) [1{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+(./openpca.bbl) [3] (./openpca.aux) ) 
 Here is how much of TeX's memory you used:
- 3902 strings out of 480108
- 52967 string characters out of 5881251
- 357593 words of memory out of 5000000
- 20989 multiletter control sequences out of 15000+600000
+ 3929 strings out of 480108
+ 53404 string characters out of 5881251
+ 356101 words of memory out of 5000000
+ 21012 multiletter control sequences out of 15000+600000
  415867 words of font info for 72 fonts, out of 8000000 for 9000
  591 hyphenation exceptions out of 8191
- 82i,8n,88p,835b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
-</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></o
-pt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></opt/loc
-al/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></opt/local/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/
-texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/local/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/local/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmmi9.pfb></opt/local/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmmib10.pfb></opt/local/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cmextra/cmmib9.pfb></opt/local/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr6.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfont
-s/cm/cmr8.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-r9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></op
-t/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/loca
-l/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/local/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on openpca.pdf (3 pages, 199266 bytes).
+ 82i,8n,88p,835b,231s stack positions out of 5000i,500n,10000p,200000b,80000s
+</opt/local/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmbx10.pfb></opt/local/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmbx9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmcsc10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/
+local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/loca
+l/share/texmf-texlive/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></opt/loca
+l/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/local/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/local/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/local/share/texmf-texliv
+e/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/local/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb></opt/local/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></opt/local/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmsy9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmti10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmti9.pfb>
+Output written on openpca.pdf (3 pages, 203557 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
