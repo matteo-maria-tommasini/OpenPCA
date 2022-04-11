@@ -1,7 +1,10 @@
 # OpenPCA/microSORS
- It is a collection of Matlab scripts for PCA analysis, specialized to the case of a series of SORS spectra measured by defocusing steps with a Horiba Jobin-Hyvon LABRAM micro-Raman equipment.
+ This is a collection of Matlab scripts for PCA analysis, specialized to the case of a series of SORS spectra measured by defocusing steps with a Horiba Jobin-Hyvon LABRAM micro-Raman equipment.
 
- 
+ List of m-files
+ ===============
+
+
 # Author contact details:
  Prof. Matteo Tommasini  
  Dipartimento di Chimica, Materiali e Ingegneria Chimica "G. Natta"  
