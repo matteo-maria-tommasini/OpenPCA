@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/MacPorts 2021.58693_2) (preloaded format=pdflatex 2021.11.1)  8 APR 2022 15:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/MacPorts 2021.58693_2) (preloaded format=pdflatex 2021.11.1)  11 APR 2022 08:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -206,34 +206,51 @@ Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 209.
 )
+(/opt/local/share/texmf-texlive/tex/latex/tools/verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks28
+\verbatim@line=\toks29
+\verbatim@in@stream=\read2
+)
 (/opt/local/share/texmf-texlive/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count269
 \l__pdf_internal_box=\box50
 )
-(./openpca.aux)
+(./openpca.aux
+
+LaTeX Warning: Label `eq.variance_covariance' multiply defined.
+
+
+LaTeX Warning: Label `eq.autovalori-covarianza-diagonalizzata' multiply defined
+.
+
+
+LaTeX Warning: Label `eq.scores' multiply defined.
+
+)
 \openout1 = `openpca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
 
  (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
 
 
 (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
@@ -243,19 +260,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: letterpaper
+* paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(73.71613pt, 430.00462pt, 110.57425pt)
-* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=430.00462pt
-* \textheight=556.47656pt
-* \oddsidemargin=1.44614pt
-* \evensidemargin=38.30426pt
-* \topmargin=1.12738pt
+* h-part:(L,W,R)=(71.70166pt, 418.25368pt, 107.55254pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=-0.56833pt
+* \evensidemargin=35.28255pt
+* \topmargin=7.13666pt
 * \headheight=8.0pt
 * \headsep=14.0pt
 * \topskip=10.0pt
@@ -280,41 +297,72 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \scratchbox=\box51
 \nofMPsegments=\count271
 \nofMParguments=\count272
-\everyMPshowfont=\toks28
+\everyMPshowfont=\toks30
 \MPscratchCnt=\count273
 \MPscratchDim=\dimen161
 \MPnumerator=\count274
 \makeMPintoPDFobject=\count275
-\everyMPtoPDFconversion=\toks29
+\everyMPtoPDFconversion=\toks31
 )
 
-LaTeX Warning: Citation `Hotelling1933' on page 1 undefined on input line 22.
-
-
-LaTeX Warning: Reference `eq.varianza-covarianza' on page 1 undefined on input 
-line 27.
-
-
-LaTeX Warning: Citation `Schott2016' on page 1 undefined on input line 44.
+LaTeX Warning: Citation `Hotelling1933' on page 1 undefined on input line 21.
 
 [1{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Reference `eq.covarianza_variabili_matriciale' on page 2 undefin
-ed on input line 76.
+LaTeX Warning: Citation `Schott2016' on page 2 undefined on input line 78.
 
-[2] [3] (./openpca.aux)
+
+LaTeX Warning: Reference `eq.covarianza_variabili_matriciale' on page 2 undefin
+ed on input line 104.
+
+
+LaTeX Warning: Citation `Hotelling1933' on page 2 undefined on input line 141.
+
+[2]
+
+LaTeX Warning: Reference `eq.varianza-covarianza' on page 3 undefined on input 
+line 146.
+
+
+Overfull \hbox (1.1217pt too wide) in paragraph at lines 159--165
+\OT1/cmr/m/n/10.95 che di-mostra an-cora una volta la sim-me-tria della ma-tric
+e di varianza-covarianza. Un'altra
+ []
+
+
+Overfull \hbox (7.55545pt too wide) in paragraph at lines 179--181
+[]\OT1/cmr/m/n/10.95 Esaminiamo quindi i det-tagli al-ge-brici in modo det-tagl
+iato. Com-in-ci-amo con l'equazione
+ []
+
+[3]
+
+LaTeX Warning: Reference `eq.covarianza_variabili_matriciale' on page 4 undefin
+ed on input line 203.
+
+
+Overfull \hbox (14.07677pt too wide) in paragraph at lines 231--232
+\OT1/cmr/m/n/10.95 delle com-po-nenti prin-ci-pali, rap-p-re-sen-tati in quello
+ che viene soli-ta-mente chiam-ato \OT1/cmr/m/it/10.95 screeplot\OT1/cmr/m/n/10
+.95 .
+ []
+
+[4] [5] (./openpca.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 3866 strings out of 480108
- 52348 string characters out of 5881251
- 352740 words of memory out of 5000000
- 20959 multiletter control sequences out of 15000+600000
+ 3900 strings out of 480108
+ 52958 string characters out of 5881251
+ 356599 words of memory out of 5000000
+ 20991 multiletter control sequences out of 15000+600000
  415522 words of font info for 71 fonts, out of 8000000 for 9000
  591 hyphenation exceptions out of 8191
- 82i,8n,88p,1056b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,8n,88p,1056b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 </opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></o
 pt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></opt/loc
 al/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></opt/local/s
@@ -322,19 +370,20 @@ hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/
 texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf
 -texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/local/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/local/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmmib10.pfb></opt/local/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cmextra/cmmib9.pfb></opt/local/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmr6.pfb></opt/local/share/texmf-texlive/fonts/type1/public/a
-msfonts/cm/cmr8.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmr9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></op
-t/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on openpca.pdf (3 pages, 172916 bytes).
+ts/type1/public/amsfonts/cm/cmmi9.pfb></opt/local/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmmib10.pfb></opt/local/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cmextra/cmmib9.pfb></opt/local/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmr6.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+r9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></op
+t/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/loca
+l/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on openpca.pdf (5 pages, 196126 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,24 +1,143 @@
 \documentclass[11pt]{amsart}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
 %\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{epstopdf}
 \usepackage{bm}
+\usepackage{verbatim}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-\title{Brief Article}
-\author{The Author}
+\title{A brief guide to Principal Component Analysis as implemented in OpenPCA}
+\author{Matteo Tommasini}
 \date{}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
 
-
-\section{Italian stuff used as draft}
 %
+The Principal Component Analysis (PCA) was introduced in 1933 by Harold Hotelling \cite{Hotelling1933} in the context of psicometric data analysis. Since its birth, PCA has been widely applied to many fields where multivariate datasets have to be dealt with.
+The easier approach to introduce PCA, by also taking into consideration its numerical implementation in Matlab, is through a fully algebraic approach that focuses on the variance-covariance matrix of the dataset and its spectral decomposition.
+%
+Let us introduce first the multivariate dataset matrix $\bm X_{ov}$, which along each row stores the results of one multivariate observation along a given number of variables ($N_v$). The adopted notation for the dataset matrix highlights the different role of row {\it vs.} column indexes. The different observations are identified in the $\bm X_{ov}$ matrix by the row index ($o$), whereas the different variables of each multivariate measurement (observation) are identified by the column index ($v$). In the context of spectroscopy, each row represents one spectrum, and the different variables are the wavenumbers at which the instrument has recorded a given spectral intensity ({\it e.g.}, Raman intensity, or absorbance). Hence, because of the adopted notation, we have the following identities:
+%
+\begin{eqnarray}
+\bm X = \bm X_{ov}
+\\ \nonumber
+\bm X_{vo} = \left( \bm X_{ov} \right)^t = \bm X^t,
+\end{eqnarray}
+%
+where $^t$ indicates matrix transposition. As described later, the variance-covariance matrix among the variables of the dataset can be straightforwardly introduced through the matrix of the centered dataset, $\bm \chi_{ov}$:
+%
+\begin{equation}
+\label{eq.centering}
+\bm \chi_{ov} = \bm X_{ov} -  \bm X_{\langle o \rangle v},
+\end{equation}
+%
+where $\bm X_{\langle o \rangle v}$ represents the row vector of the average values of the variables over the number of $N_o$ observations, and its elements are given by:
+%
+\begin{equation}
+\label{eq.average}
+X_{\langle o \rangle v} = \frac{1}{N_o} \sum_{o} X_{ov} 
+\end{equation}
+%
+We adopt in Eq. (\ref{eq.centering}) the same abuse of notation used in Matlab: by subtracting a row vector to a matrix actually one subtracts the given row vector to each row of the matrix. Hence Eq. (\ref{eq.centering}) is implemented in Matlab as simply as \mbox{chi = X - mean(X)}, because the Matlab function mean(X) gives the row vector corresponding to the average of all the rows of the X matrix -- which effectively corresponds to averaging out with respect to the available observations (see above).
+%
+The variance-covariance matrix among the variables of the dataset ($\bm \Sigma_{vv}$) is defined as follows:
+%
+\begin{eqnarray}
+\label{eq.variance_covariance}
+\Sigma_{v_1 v_2} = 
+\frac{1}{N_o-1} 
+\sum_{o} 
+\left( X_{o v_1} - X_{\langle o \rangle v_1} \right) 
+\, 
+\left( X_{o v_2} - X_{\langle o \rangle v_2} \right) 
+=
+\\ \nonumber
+=
+\frac{1}{N_o-1} 
+\sum_{o}
+\chi_{o v_1} \chi_{o v_2}
+\end{eqnarray}
+%
+The last equality shows that, with matrix notation, the variance covariance matrix is simply given by:
+%
+\begin{eqnarray}
+\label{eq.variance_covariance}
+\bm \Sigma_{vv} = 
+\frac{1}{N_o-1} 
+({\bm \chi_{ov}})^t {\bm \chi_{ov}} = \frac{1}{N_o-1} 
+{\bm \chi_{vo}} {\bm \chi_{ov}}.
+\end{eqnarray}
+%
+Clearly, by definition, $\bm \Sigma$ is a symmetric matrix, and it is positive definite\footnote{This is straightforward to show by using the expression $\bm \Sigma = \bm A^t \bm A$, with $\bm A = \bm \chi / \sqrt{N_o-1}$. For $\bm \Sigma$ to be positive defined it should be $\bm x^t \bm \Sigma \bm x \ge 0$ for a generic $\bm x$ column vector.
+%
+By considering that $\bm \Sigma = \bm A^t \bm A$, such requirements becomes $0 \le \bm x^t \bm \Sigma \bm x = \bm x^t \bm A^t \bm A \bm x = (\bm A \bm x)^t (\bm A \bm x) = \left| \bm A \bm x \right|^2$. The last step clearly proves the statement, because it represents the squared modulus of the generic vector $\bm A \bm x$ (certainly a non-negative quantity).}. Therefore it admits spectral decomposition by the orthogonal matrix of its eigenvectors, and the eigenvalues are positive quantities \cite{Schott2016}.
+%
+The matrix eigenvalue problem of the variance-covariance matrix is written as:
+%
+\begin{eqnarray}
+\label{eq.eigenproblem_sigma}
+\bm \Sigma_{vv} \bm L_{vs} = \bm L_{vs} \bm \sigma_{ss} 
+\end{eqnarray}
+%
+In Eq. (\ref{eq.eigenproblem_sigma}) $\bm \sigma_{ss}$ is the diagonal matrix of the eigenvalues of $\bm \Sigma_{vv}$ and $\bm L_{vs}$ is the orthogonal matrix of the eigenvectors of $\bm \Sigma_{vv}$. The orthogonality of $\bm L_{vs}$ implies:
+%
+\begin{eqnarray}
+\bm L_{vs} \bm L_{sv}  = \bm 1_{vv}
+\\ \nonumber
+\bm L_{sv} \bm L_{vs}  = \bm 1_{ss}. 
+\end{eqnarray}
+%
+Therefore, by left-multiplying Eq. (\ref{eq.autovalori-covarianza}) by $\bm L_{sv}$, and by considering its orthonormality, one obtains the spectral decomposition of the variance-covariance matrix:
+%
+\begin{eqnarray}
+\label{eq.autovalori-covarianza-diagonalizzata}
+\bm L_{sv} \bm \Sigma_{vv} \bm L_{vs}
+=
+\bm \sigma_{ss}
+\end{eqnarray}
+%
+By sustituting in the right-hand side of Eq. (\ref{eq.autovalori-covarianza-diagonalizzata}) the definition of $\bm \Sigma_{vv} = \bm \chi_{vo} \bm \chi_{ov} / (N_o-1)$ (cfr. Eq. \ref{eq.covarianza_variabili_matriciale}), one obtains:
+%
+\begin{eqnarray}
+\bm \sigma_{ss} =
+\frac{1}{N_o - 1} \; \bm L_{sv} \bm \chi_{vo} \; \bm \chi_{ov} \bm L_{vs} 
+\end{eqnarray}
+%
+Con un piccolo sforzo possiamo riconoscere al secondo membro una struttura data dal prodotto di una nuova matrice $\bm S$ e della sua trasposta:
+%
+\begin{eqnarray}
+\bm \sigma_{ss}
+=
+\left[ \frac{1}{\sqrt{N_o - 1}} \bm L_{sv} \bm \chi_{vo} \right]
+\left[ \bm \chi_{ov} \bm L_{vs} \frac{1}{\sqrt{N_o - 1}} \right] 
+=
+\bm S_{so} \bm S_{os}
+=
+\bm S^t \bm S.
+\end{eqnarray}
+%
+Le righe di tale matrice, detta matrice degli {\em scores} ($\bm S = \bm S_{os}$), definiscono le  osservazioni $o$ in funzione delle componenti principali $s$:
+%
+\begin{eqnarray}
+\label{eq.scores}
+\bm S_{os} \equiv \left[ \frac{1}{\sqrt{N_o - 1}} \bm \chi_{ov} \bm L_{vs} \right]
+\end{eqnarray}
+
+
+
+
+
+
+
+
+
+
+\section{stuff}
 Si tratta di un metodo di analisi che è stato introdotto nel 1933 da Harold Hotelling \cite{Hotelling1933} per analizzare dati di tipo psicometrico. Nella letteratura scientifica in lingua inglese tale metodo prende il nome di {\em Principal Component Analysis}, il cui acronimo PCA è molto popolare. Il modo più compatto di introdurre la PCA è attraverso una serie di considerazioni di tipo algebrico svolte sulla matrice di varianza-covarianza.
 %
 Per prima cosa richiamiamo la definizione della matrice di varianza-covarianza e cerchiamo di riscriverla in modo simmetrico:
@@ -41,8 +160,16 @@ Valutando la trasposta di $\bm \Sigma$ otteniamo:
 %
 che dimostra ancora una volta la simmetria della matrice di varianza-covarianza.
 %
-Un'altra proprietà significativa della matrice di varianza-covarianza è che si tratta di una matrice definita positiva\footnote{Questo risultato è semplice da dimostrare utilizzando la forma $\bm \Sigma = \bm A^t \bm A$. Una matrice semi definita positiva $\bm M$ è tale per cui dato un vettore generico $\bm x$ risulta $\bm x^t \bm M \bm x \ge 0$. Nel nostro caso, sfruttando la definizione $\bm \Sigma = \bm A^t \bm A$ abbiamo $\bm x^t \bm \Sigma \bm x = \bm x^t \bm A^t \bm A \bm x = (\bm A \bm x)^t (\bm A \bm x) = \left| \bm A \bm x \right|^2$. L'ultimo passaggio dimostra che otteniamo il modulo al quadrato di un generico vettore $\bm A \bm x$; tale modulo al quadrato è certamente una grandezza $\ge 0$.}, che quindi possiede autovalori $\ge 0$ \cite{Schott2016}.
+Un'altra proprietà significativa della matrice di varianza-covarianza è che si tratta di una matrice definita positiva\footnote{Questo risultato è semplice da dimostrare utilizzando la forma $\bm \Sigma = \bm A^t \bm A$. Una matrice semi definita positiva $\bm M$ è tale per cui dato un vettore generico $\bm x$ risulta $\bm x^t \bm M \bm x \ge 0$. Nel nostro caso, sfruttando la definizione $\bm \Sigma = \bm A^t \bm A$ abbiamo $\bm x^t \bm \Sigma \bm x = \bm x^t \bm A^t \bm A \bm x = (\bm A \bm x)^t (\bm A \bm x) = \left| \bm A \bm x \right|^2$. L'ultimo passaggio dimostra che otteniamo il modulo al quadrato di un generico vettore $\bm A \bm x$; tale modulo al quadrato è certamente una grandezza $\ge 0$.}, che quindi possiede autovalori $\ge 0$ .
 %
+
+
+
+
+
+
+
+
 
 Vediamo ora in che modo si possa introdurre una trasformazione lineare che permetta di passare dagli indici di variabile $v$ a nuovi indici $s$, che chiameremo indici delle componenti principali. L'idea è quella di sostituire al set di variabili con cui abbiamo operato per raccogliere le osservazioni un nuovo set di variabili "migliori", per due motivi: (1) la loro mutua indipendenza (ortogonalità) e (2) il loro numero, potenzialmente più ridotto del numero di variabili originarie. Tale set di variabili "migliori" è il set delle cosiddette componenti principali, da associare agli indici $s$.
 Detto in altri termini, {\em tramite le componenti principali diventa possibile descrivere le osservazioni sperimentali utilizzando un set ridotto di grandezze tra di loro indipendenti}, con vantaggi evidenti.
@@ -76,11 +203,12 @@ Moltiplicando da sinistra l'Eq. (\ref{eq.autovalori-covarianza}) per la matrice 
 Introduciamo ora nel secondo membro dell'Eq. (\ref{eq.autovalori-covarianza-diagonalizzata}) la definizione di $\bm \Sigma_{vv} = \bm \chi_{vo} \bm \chi_{ov} / (N_o-1)$ (cfr. Eq. \ref{eq.covarianza_variabili_matriciale}): 
 %
 \begin{eqnarray}
+\label{eq.decomposed}
 \bm \sigma_{ss} =
 \frac{1}{N_o - 1} \; \bm L_{sv} \bm \chi_{vo} \; \bm \chi_{ov} \bm L_{vs} 
 \end{eqnarray}
 %
-Con un piccolo sforzo possiamo riconoscere al secondo membro una struttura data dal prodotto di una nuova matrice $\bm S$ e della sua trasposta:
+Similarly to the definition of a variance-covariance matrix (Eq. (\ref{eq.variance_covariance})), it is then possible to identify in the right-hand side of Eq. (\ref{eq.decomposed}) a structure given by the product of a matrix (defined $\bm S$) by its transpose ():
 %
 \begin{eqnarray}
 \bm \sigma_{ss}
@@ -119,7 +247,7 @@ In questo modo nella presentazione dello {\em scatterplot} ci si può ricondurre
 %
 \left( \bm \sigma_{ss}^{-1/2} \bm S_{so} \right) \left( \bm S_{os} \bm \sigma_{ss}^{-1/2} \right) =
 %
-\bm \sigma_{ss}^{-1/2} \bm \sigma_{ss} \bm \sigma_{ss}^{-1/2} = \bm 1.
+\bm \sigma_{ss}^{-1/2} \bm \sigma_{ss} \bm \sigma_{ss}^{-1/2} = {\bm 1}_{ss}.
 \end{eqnarray}
 
 
