@@ -6,7 +6,6 @@
 
 main_1_load_data_and_run_PCA.m  
 main_2_analysis.m
-load_spectra.m                                 
 multi_read_labram_zscan.m       
 read_labram_zscan.m             
 
@@ -20,13 +19,18 @@ snv.m
 select_range.m                  
 select_range2.m                 
 
-fix_PCA_reference.m             
-plot_spectra.m                  
+fix_PCA_reference.m
+
+# plot the set of micro-SORS spectra
+plot_spectra.m
+
+# save current plots on pdf files (i.e. archives results of Matlab runs)
 savepdf.m                       
 
 
 
 Unused (to be deleted soon)
+load_spectra.m                                 
 normalize_spectra.m             
 plot_report2.m                  
 plot_report3.m                  
