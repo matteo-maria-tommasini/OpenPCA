@@ -4,25 +4,32 @@
  List of m-files (top-down ordering)
  ===================================
 
+## the two data analysis scripts that should be run one atfer the other
 main_1_load_data_and_run_PCA.m  
 main_2_analysis.m
+
+## the set of the supporting functions
+### handle the reading of micro-SORS data (Labram instrument)
 multi_read_labram_zscan.m       
 read_labram_zscan.m             
 
-PCA.m                           
-screeplot.m                     
-cumulative_screeplot.m          
+### plot the set of micro-SORS spectra
+plot_spectra.m
 
+## pre-processing of data
+### SNV correction (see )
 snvcorr.m                       
-snv.m                           
+snv.m      
 
+### select wavenumber range (either single or double)
 select_range.m                  
 select_range2.m                 
 
+### carry out PCA analysis and plot the results
+PCA.m                           
+screeplot.m                     
+cumulative_screeplot.m
 fix_PCA_reference.m
-
-### plot the set of micro-SORS spectra
-plot_spectra.m
 
 ### save current plots on pdf files (i.e. archives results of Matlab runs)
 savepdf.m                       
