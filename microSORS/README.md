@@ -37,7 +37,7 @@ fix_PCA_reference.m
 savepdf.m
 
 
-# Author contact details:
+# Author contact details
  Prof. Matteo Tommasini  
  Dipartimento di Chimica, Materiali e Ingegneria Chimica "G. Natta"  
  Politecnico di Milano, Piazza Leonardo da Vinci 32, 20133 Milano, Italy  
