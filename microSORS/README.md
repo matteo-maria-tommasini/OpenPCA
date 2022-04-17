@@ -21,10 +21,10 @@ select_range2.m
 
 fix_PCA_reference.m
 
-# plot the set of micro-SORS spectra
+### plot the set of micro-SORS spectra
 plot_spectra.m
 
-# save current plots on pdf files (i.e. archives results of Matlab runs)
+### save current plots on pdf files (i.e. archives results of Matlab runs)
 savepdf.m                       
 
 
