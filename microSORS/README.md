@@ -5,7 +5,8 @@
  ===================================
 
 main_1_load_data_and_run_PCA.m  
-main_2_analysis.m               
+main_2_analysis.m
+load_spectra.m                                 
 multi_read_labram_zscan.m       
 read_labram_zscan.m             
 
@@ -20,9 +21,8 @@ select_range.m
 select_range2.m                 
 
 fix_PCA_reference.m             
-savepdf.m                       
-load_spectra.m                  
 plot_spectra.m                  
+savepdf.m                       
 
 
 
