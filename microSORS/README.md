@@ -42,9 +42,12 @@ savepdf.m
  Dipartimento di Chimica, Materiali e Ingegneria Chimica "G. Natta"  
  Politecnico di Milano, Piazza Leonardo da Vinci 32, 20133 Milano, Italy  
  email: matteo.tommasini@polimi.it  
- 
+
+
 # References
+
 [1] Barnes RJ, Dhanoa MS, Lister SJ: Standard Normal Variate Transformation and De-trending of Near-Infrared Diffuse Reflectance Spectra. Appl Spectrosc 1989, 43(5):772-777.
+
 [2] https://www.americanpharmaceuticalreview.com/Featured-Articles/116330-Practical-Considerations-in-Data-Pre-treatment-for-NIR-and-Raman-Spectroscopy/
 
 
