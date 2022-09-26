@@ -1,7 +1,7 @@
 # OpenPCA
  It is a collection of Matlab scripts for PCA analysis.
 
- The scripts are adapted for selected applications in micro Raman spectroscopy. More to come in the near future (PCA analysis of micro Raman mapping).
+ The scripts are adapted for selected applications in micro Raman spectroscopy. 
 
 # Author contact details:
  Prof. Matteo Tommasini  
